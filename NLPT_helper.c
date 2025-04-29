@@ -675,7 +675,6 @@ SortEntries(struct translatePair aEntries[][PAIRMAX],
         intTemp,
         iMin = 0, // Entry min variable
         jMin = 0, // Pair min variable
-        isFound; // Bool value denoting if target has been found
     struct translatePair target, // Contains the target language to be found
                          TPtemp;
 

@@ -101,7 +101,6 @@ AddTranslation(struct translatePair aEntries[][PAIRMAX],
     int i, 
         j,
         nIsFound = -1,  // entry number if the input has been found in the entry; -1 otherwise
-        nIsStore,       // 1 if the input has been stored to a new array; 0 otherwise
         nSentinel,      // 1 as long as the function continues to run
         nEntryStore,    // Entry number to store the entered translation pairs
         nNoFoundEntries = 0, // Number of entries that contain the first input of the user
@@ -116,7 +115,7 @@ AddTranslation(struct translatePair aEntries[][PAIRMAX],
     input = getTranslatePair();
     printf("\nEntries with %s - %s:\n", input.strLang, input.strTrans);
 
-    // Loop to determin the entries that contain the first input of the user
+    // Loop to determine the entries that contain the first input of the user
     for (i = 0; i < *nNoEntries; i++)
     {   
         j = 0;
@@ -131,7 +130,6 @@ AddTranslation(struct translatePair aEntries[][PAIRMAX],
                 aFoundEntries[i]++; // Denotes that entry i contains the translation pair (value is 1) 
                 nIsFound = i; // Denotes that the translation pair is found in entry i
 
-                // ADDED
                 if (aEntryCounts[i] >= PAIRMAX)
                     printf("NOTE: This entry is full.\n\n");
             }
@@ -161,13 +159,13 @@ AddTranslation(struct translatePair aEntries[][PAIRMAX],
             {
                 nEntryStore = getIntNoInput(1, "Enter a valid entry no. to add a translation: ");
                 // Checks if the entered entry number does contain the translation pair input 
-                if (!aFoundEntries[nEntryStore] || aEntryCounts[nEntryStore] >= PAIRMAX) // ADDED
+                if (!aFoundEntries[nEntryStore] || aEntryCounts[nEntryStore] >= PAIRMAX)
                     printf("Invalid. ");
             } while (!aFoundEntries[nEntryStore] || aEntryCounts[nEntryStore] >= PAIRMAX);
         }
         
         // Loops while nSentinel is 1 and the entry count of the entry is less than PAIRMAX
-        while (nSentinel && aEntryCounts[nEntryStore] < PAIRMAX) // MODIFIED
+        while (nSentinel && aEntryCounts[nEntryStore] < PAIRMAX)
         {
             // Gets user inputs of translate pairs and duly stores them
             input = getTranslatePair();
@@ -507,6 +505,9 @@ DeleteTranslation(struct translatePair aEntries[][PAIRMAX],
             nSentinel = getIntSentiInput(0, 1, "Enter (1 if yes; 0 if no): ");
         }
     }
+
+    // Sorts the entries in case if the previous entry's leading translation pair was deleted
+    SortEntries(aEntries, nEntryCounts, *nNoEntries);
 }
 
 /*
