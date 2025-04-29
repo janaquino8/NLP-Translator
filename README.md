@@ -34,4 +34,5 @@ gcc -Wall -std=c99 NLPT_main.c
 ---
 
 _The author of this project would like to thank his CCPROG2 professor, Ms. Nats, for guidance in this project._
+
 _Made by Jan Leoric B. Aquino_
