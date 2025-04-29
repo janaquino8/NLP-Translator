@@ -1,0 +1,58 @@
+Cebuano: mahal
+Chinese: gui
+English: costly
+English: expensive
+Kapampangan: mahal
+Tagalog: mahal
+
+English: disappointingly
+English: unfortunately
+Tagalog: malngkot
+Tagalog: nakakadismaya
+
+Chinese: ni hao
+Danish: hej
+Dutch: hallo
+English: hello
+French: bonjour
+German: hallo
+Italian: ciao
+Portugese: oi
+Spanish: hola
+Turkish: selam
+
+English: i am music
+Tagalog: ako ay musika
+
+Cebuano: gugma
+Chinese: ai
+English: love
+Hiligaynon: gugma
+Tagalog: mahal
+
+English: symbols
+
+English: thank you
+Tagalog: maraming salamat
+
+English: time
+Tagalog: oras
+Tagalog: panahon
+
+English: translated
+Tagalog: isinalin
+Tagalog: tinranslate
+
+English: zoo
+French: zoo
+Tagalog: zoo
+
+1: 1
+2: 2
+
+Japanese: hai
+Russian: da
+Spanish: si
+Tagalog: oo
+Tagalog: opo
+
