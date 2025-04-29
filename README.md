@@ -2,7 +2,13 @@
 A simple translator made using C 
 
 ## About
-This is a simple natural language processing (NLP) translator written using C. For the **manage data** section, this translator allows the user to add entries pertaining to the translation of a single word to other languages, delete entries, view entries, search entries based on word or translation, export the entries to a text file, and import a text file following the prescribed format (see ```Sample_Import.txt``` for details). For the **translate** section, the user may enter the text to be translated via input (maximum of 150 characters) or file (maximum of 150 characters per sentence). Translations will not include any punctuation marks that are not part of the words in the text (see ```Sample_TextFile.txt``` for an example on how translations via text file are exported).
+This is a simple natural language processing (NLP) translator written using C. 
+
+For the **manage data** section, this translator allows the user to add entries pertaining to the translation of a single word to other languages, delete entries, view entries, search entries based on word or translation, export the entries to a text file, and import a text file following the prescribed format (see ```Sample_Import.txt``` for details). 
+
+For the **translate** section, the user may enter the text to be translated via input (maximum of 150 characters) or file (maximum of 150 characters per sentence). 
+
+Translations are done per word (ex. I love that computer -> Ako mahal iyan kompyuter) and do not include any punctuation marks that are not part of the words in the text (see ```Sample_TextFile.txt``` for an example on how translations via text file are exported).
 
 This is done as a Machine Project (MP), part of the course requirements for CCPROG2 in DLSU. All bugs that were not fix at the time were fixed for this repository. 
 
