@@ -6,8 +6,6 @@ This is a simple natural language processing (NLP) translator written using C. F
 
 This is done as a Machine Project (MP), part of the course requirements for CCPROG2 in DLSU.
 
----
-
 ## Installation Guide
 
 ### Cloning the repository
@@ -25,8 +23,6 @@ gcc -Wall -std=c99 NLPT_main.c
 ./a
 ```
 
----
-
 ## Files
 - ```NLPT_main.c``` - main file
 - ```NLPT_options.c``` - file for the main menu, manage data, and translation options
@@ -36,5 +32,6 @@ gcc -Wall -std=c99 NLPT_main.c
 - ```Sample_TextFile.txt``` - sample text file for an exported translated text
 
 ---
+
 _The author of this project would like to thank his CCPROG2 professor, Ms. Nats, for guidance in this project._
 _Made by Jan Leoric B. Aquino_
