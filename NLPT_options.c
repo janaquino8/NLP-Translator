@@ -507,7 +507,7 @@ DeleteTranslation(struct translatePair aEntries[][PAIRMAX],
     }
 
     // Sorts the entries in case if the previous entry's leading translation pair was deleted
-    SortEntries(aEntries, nEntryCounts, *nNoEntries);
+    SortEntries(aEntries, aEntryCounts, *nNoEntries);
 }
 
 /*
