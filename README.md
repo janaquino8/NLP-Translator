@@ -30,10 +30,10 @@ gcc -Wall -std=c99 NLPT_main.c
 ```
 
 ## Files
-- ```NLPT_main.c``` - main file
-- ```NLPT_options.c``` - file for the main menu, manage data, and translation options
-- ```NLPT_helper.c``` - file for helper functions
-- ```NLPT_header.h``` - header file
+- ```main.c``` - main file
+- ```options.c``` - file for the main menu, manage data, and translation options
+- ```helper.c``` - file for helper functions
+- ```header.h``` - header file
 - ```Sample_Import.txt``` - sample text file for translation entries to be imported
 - ```Sample_TextFile.txt``` - sample text file for an exported translated text
 
