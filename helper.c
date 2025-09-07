@@ -1,9 +1,12 @@
 #include "header.h"
 
 /*
-    printLine prints an asterisk line depending on the length given
-    @param n - length of the line
+    printLine 
+    
+    prints an asterisk line depending on the length given
+    @param n length of the line
     @return N/A
+
     Pre-condition: n is greater than 0
 */
 void
@@ -21,9 +24,12 @@ printLine(int n)
 }
 
 /*
-    displayMainMenu displays the display screen of the main menu
+    displayMainMenu 
+    
+    displays the display screen of the main menu
     @param N/A
     @return N/A
+
     Pre-condition: N/A
 */
 void
@@ -55,9 +61,12 @@ displayMainMenu()
 }
 
 /*
-    displayManageDataMenu displays the display screen of the manage data menu
+    displayManageDataMenu 
+    
+    displays the display screen of the manage data menu
     @param N/A
     @return N/A
+
     Pre-condition: N/A
 */
 void
@@ -86,9 +95,12 @@ displayManageDataMenu()
 }
 
 /*
-    displayTranslateMenu displays the display screen of the translate menu
+    displayTranslateMenu 
+    
+    displays the display screen of the translate menu
     @param N/A
     @return N/A
+
     Pre-condition: N/A
 */
 void
@@ -111,11 +123,14 @@ displayTranslateMenu()
 //#############################################################################################################
 
 /*
-    getIntSentiInput gets the sentinel input of the user given a specific range of allowed aValues
-    @param min - lower boundary allowed for the input
-    @param max - upper boundary allowed for the input
-    @param sInstruct - string containing instructions to guide the user
+    getIntSentiInput 
+    
+    gets the sentinel input of the user given a specific range of allowed aValues
+    @param min lower boundary allowed for the input
+    @param max upper boundary allowed for the input
+    @param sInstruct string containing instructions to guide the user
     @return integer input of the user
+
     Pre-condition: nMin <= nMax; both are only one digit
 */
 int 
@@ -155,9 +170,13 @@ getIntSentiInput(int nMin, int nMax, char sInstruct[])
 }
 
 /*
-    getIntNoInput gets the user's input of an entry or pair number
-    @param nIsRedo - 1 if the user may input another number after entering an invalid number; 0 otherwise
+    getIntNoInput 
+    
+    gets the user's input of an entry or pair number
+    @param nIsRedo 1 if the user may input another number after entering an invalid number; 0 otherwise
+    @param sInstruct string containing instructions to guide the user
     @return a positive integer corresponding to the index of an entry or pair number (entry/pair no - 1)
+    
     Pre-assumption: Input is only three digits long
 */
 int
@@ -219,9 +238,12 @@ getIntNoInput(int nIsRedo, char sInstruct[])
 }
 
 /*
-    getDisplaySentiInput gets the user's char input for when using display options
+    getDisplaySentiInput 
+    
+    gets the user's char input for when using display options
     @param N/A
     @return the char input of the user (either N, P, or X)
+
     Pre-assumption: N/A
 */
 char
@@ -255,10 +277,13 @@ getDisplaySentiInput()
 }
 
 /*
-    getShortStrInput gets the string (Language/Translation) input of a user
-    @param sInput - string to store the input
-    @param sInstruct - string containing instructions to guide the user
+    getShortStrInput 
+    
+    gets the string (Language/Translation) input of a user
+    @param sInput string to store the input
+    @param sInstruct string containing instructions to guide the user
     @return N/A
+
     Pre-condition: N/A
 */
 void
@@ -298,9 +323,12 @@ getShortStrInput(char sInput[], char sInstruct[])
 }
 
 /*
-    getTxtFileNameInput gets the text filename input of a user
-    @param sInput - string to store the input
+    getTxtFileNameInput 
+    
+    gets the text filename input of a user
+    @param sInput string to store the input
     @return the address of input
+
     Pre-condition: strlen(sInput) is less than or equal to the given size limit allocated for filenames minus the file extension
 */
 void
@@ -352,10 +380,13 @@ getTxtFileNameInput(char sInput[])
 }
 
 /*
-    getLongStrInput gets the string (text) input of a user
-    @param input - string to store the input
-    @param sInstruct - string containing instructions to guide the user
+    getLongStrInput 
+    
+    gets the string (text) input of a user
+    @param input string to store the input
+    @param sInstruct string containing instructions to guide the user
     @return N/A
+
     Pre-condition: strlen(input) is less than or equal to the given size limit allocated for that string
 */
 void
@@ -391,10 +422,13 @@ getLongStrInput(char sInput[], char sInstruct[])
 }
 
 /*
-    CleanString either lowercases the strings, then capitalizes the first character if desired
-    @param nString - string to be 'cleaned'
-    @param nIfCapitalized - 1 if first character should be capitalized; 0 otherwise
+    CleanString 
+    
+    lowercases the strings, then capitalizes the first character if desired
+    @param nString string to be 'cleaned'
+    @param nIfCapitalized 1 if first character should be capitalized; 0 otherwise
     @return N/A
+
     Pre-condition: strlen(nString) <= 20
 */
 void
@@ -420,9 +454,12 @@ CleanString(char nString[], int nIfCapitalized)
 }
 
 /*
-    getTranslatePair gets the translatePair input of the user
+    getTranslatePair 
+    
+    gets the translatePair input of the user
     @param N/A
     @return the input of the user
+
     Pre-condition: N/A
 */
 struct translatePair
@@ -445,13 +482,16 @@ getTranslatePair()
 //#############################################################################################################
 
 /*
-    displayEntry displays the translation pairs stored in an entry
-    @param entry - the entry to be displayed
-    @param nEntryCount - the current count of the entry
-    @param nEntryNo - the entry number (disregarding array indexing)
+    displayEntry 
+    
+    displays the translation pairs stored in an entry
+    @param entry the entry to be displayed
+    @param nEntryCount the current count of the entry
+    @param nEntryNo the entry number (disregarding array indexing)
     @return N/A
-    Pre-condition: The entry contains at least one translation pair
-                   The entry is sorted 
+
+    Pre-condition: The entry contains at least one translation pair;
+                   the entry is sorted 
 */
 void
 displayEntry(struct translatePair entry[], 
@@ -475,12 +515,15 @@ displayEntry(struct translatePair entry[],
 }
 
 /*
-    displayEntries displays all existing entries, page-style
-    @param aEntries - array of the list of entries that exist
-    @param aEntryCounts - array of the number of translation pairs stored in each entry
-    @param nNoEntries - the number of existing entries 
-    @param aEntryNoList - array containing the entry no. of each entry in aEntries
+    displayEntries 
+    
+    displays all existing entries, page-style
+    @param aEntries array of the list of entries that exist
+    @param aEntryCounts array of the number of translation pairs stored in each entry
+    @param nNoEntries the number of existing entries 
+    @param aEntryNoList array containing the entry no. of each entry in aEntries
     @return N/A
+
     Pre-condition: There is at least one entry that exists
 */
 void
@@ -531,12 +574,15 @@ displayEntries(struct translatePair aEntries[][PAIRMAX],
 //#############################################################################################################
 
 /*
-    copyEntry copies an existing entry to another entry
-    @param dest - array representing the destination entry
-    @param origin - array representing the origin entry
-    @param nNoPairs - the number of pairs in origin
+    copyEntry 
+    
+    copies an existing entry to another entry
+    @param dest array representing the destination entry
+    @param origin array representing the origin entry
+    @param nNoPairs the number of pairs in origin
     @return N/A
-    Pre-condition: dest isn't initialized
+    
+    Pre-condition: dest isn't initialized;
                    origin has at least one existing translation pair and is sorted
 */
 void
@@ -564,8 +610,8 @@ copyEntry(struct translatePair dest[],
 
 /*
     pairComparison compares two translate pairs and returns a value depending on their similarities
-    @param pair1 - the first pair
-    @param pair2 - the second pair
+    @param pair1 the first pair
+    @param pair2 the second pair
     @return 1 if only the languages match, 2 if only the translations match, 3 if both and 0 if neither
     Pre-condition: strLang of each pair holds a non-garbage value
 */
@@ -587,19 +633,22 @@ pairComparison(struct translatePair pair1,
 }
 
 /*
-    search searches the entries for the first instance of a target 
+    search 
+    
+    searches the entries for the first instance of a target 
         (whether language, translation, or both), starting from a given entry and pair 
-    @param aEntries - array of the list of entries that exist
-    @param aEntryCounts - array of the number of translation pairs stored in each entry
-    @param nNoEntries - address containing the number of existing entries 
-    @param target - what search will be looking for
-    @param nFirstEntry - the first entry to be searched
-    @param nFirstPair - the first pair (within nFirstEntry) to be searched
-    @param nEntryNo - address where the index of the first instance of the target entry will be stored
-    @param nPairNo - address where the index of the first instance of the target pair will be stored
-    @param nMatch - will tell if the language, the translation, or both will be searched
+    @param aEntries array of the list of entries that exist
+    @param aEntryCounts array of the number of translation pairs stored in each entry
+    @param nNoEntries address containing the number of existing entries 
+    @param target what search will be looking for
+    @param nFirstEntry the first entry to be searched
+    @param nFirstPair the first pair (within nFirstEntry) to be searched
+    @param nEntryNo address where the index of the first instance of the target entry will be stored
+    @param nPairNo address where the index of the first instance of the target pair will be stored
+    @param nMatch will tell if the language, the translation, or both will be searched
                    (1 if only the languages, 2 if only the translations, 3 if both)
     @return N/A
+
     Pre-condition: at least one entry exists
 */
 void
@@ -655,16 +704,19 @@ search(struct translatePair aEntries[][PAIRMAX],
 //#############################################################################################################
 
 /*
-    SortEntries sorts the entries according to English translation
-    @param aEntries - array of the list of entries that exist
-    @param aEntryCounts - array of the number of translation pairs stored in each entry
-    @param nNoEntries - address containing the number of existing entries 
+    sortEntries 
+    
+    sorts the entries according to English translation
+    @param aEntries array of the list of entries that exist
+    @param aEntryCounts array of the number of translation pairs stored in each entry
+    @param nNoEntries address containing the number of existing entries 
     @return N/A
-    Pre-condition: Each entry has had its pairs intra-sorted prior
-                   There is at least one existing entry
+
+    Pre-condition: Each entry has had its pairs intra-sorted prior;
+                   there is at least one existing entry
 */
 void
-SortEntries(struct translatePair aEntries[][PAIRMAX],
+sortEntries(struct translatePair aEntries[][PAIRMAX],
             int aEntryCounts[],
             int nNoEntries)
 {
@@ -736,14 +788,17 @@ SortEntries(struct translatePair aEntries[][PAIRMAX],
 
 
 /*
-    SortEntryPairs sorts the translation pairs in a single entry according to language
-    @param entry - the entry to be sorted
-    @param entryCount - the current count of the entry
+    sortEntryPairs 
+    
+    sorts the translation pairs in a single entry according to language
+    @param entry the entry to be sorted
+    @param entryCount the current count of the entry
     @return N/A 
+
     Pre-condition: The entry contains at least one translation pair
 */
 void
-SortEntryPairs(struct translatePair entry[], 
+sortEntryPairs(struct translatePair entry[], 
                int entryCount)
 {
     int i, 
@@ -776,14 +831,17 @@ SortEntryPairs(struct translatePair entry[],
 //#############################################################################################################
 
 /*
-    shiftEntries shifts the entries and their counts by one index lower
-    @param aEntries - array of the list of entries that exist
-    @param aEntryCounts - array of the number of translation pairs stored in each entry
-    @param nNoEntries - the number of existing entries 
-    @param nStartingIndex - index where the shifting starts
+    shiftEntries 
+    
+    shifts the entries and their counts by one index lower
+    @param aEntries array of the list of entries that exist
+    @param aEntryCounts array of the number of translation pairs stored in each entry
+    @param nNoEntries the number of existing entries 
+    @param nStartingIndex index where the shifting starts
     @return N/A
-    Pre-condition: There are at least two existing entries
-                   nStartingIndex is a value from 0 to nNoEntries - 1
+
+    Pre-condition: There are at least two existing entries;
+                   nStartingIndex is a value from 0 to nNoEntries 1
 */
 void
 shiftEntries(struct translatePair aEntries[][PAIRMAX],
@@ -802,13 +860,15 @@ shiftEntries(struct translatePair aEntries[][PAIRMAX],
 }
 
 /*
-    shiftPairs shifts the translation pairs of an entry by one index lower
-    @param aEntry - array of the list of translation pairs in an entry
-    @param nEntryCount - array of the number of translation pairs stored in the entry
-    @param nStartingIndex - index where the shifting starts
+    shiftPairs 
+    
+    shifts the translation pairs of an entry by one index lower
+    @param aEntry array of the list of translation pairs in an entry
+    @param nEntryCount array of the number of translation pairs stored in the entry
+    @param nStartingIndex index where the shifting starts
     @return N/A
     Pre-condition: There are at least two entries that exist;
-                   nStartingIndex is a value from 0 to nEntryCount - 1
+                   nStartingIndex is a value from 0 to nEntryCount 1
 */
 void
 shiftPairs(struct translatePair aEntry[],
@@ -823,10 +883,13 @@ shiftPairs(struct translatePair aEntry[],
 }
 
 /*
-    clearEntry clears all translation pairs in an entry
-    @param aEntry - array of the list of translation pairs in an entry
-    @param nEntryCount - array of the number of translation pairs stored in the entry
+    clearEntry 
+    
+    clears all translation pairs in an entry
+    @param aEntry array of the list of translation pairs in an entry
+    @param nEntryCount array of the number of translation pairs stored in the entry
     @return N/A
+
     Pre-condition: The entry is intended to be "deleted"
 */
 void
@@ -847,19 +910,22 @@ clearEntry(struct translatePair aEntry[],
 //#############################################################################################################
 
 /*
-    ReadImportedData reads data from a text file and stores it as translation pairs in aEntries
-    @param fp - file pointer of the txt file being read
-    @param aEntries - array of the list of entries that exist
-    @param aEntryCounts - array of the number of translation pairs stored in each entry
-    @param *nNoEntries - address of the number of existing entries
+    readImportedData 
+    
+    reads data from a text file and stores it as translation pairs in aEntries
+    @param fp file pointer of the txt file being read
+    @param aEntries array of the list of entries that exist
+    @param aEntryCounts array of the number of translation pairs stored in each entry
+    @param *nNoEntries address of the number of existing entries
     @return N/A
-    Pre-condition: fp points to a txt file
-                   In textfiles, each translation pair in an entry is separated by one newline, 
-                       while entries are separated by two
-                   Each element in aEntryCounts is initialized to 0 prior
+
+    Pre-condition: fp points to a txt file;
+                   in textfiles, each translation pair in an entry is separated by one newline, 
+                       while entries are separated by two;
+                   each element in aEntryCounts is initialized to 0 prior
 */
 void
-ReadImportedData(FILE *fp,
+readImportedData(FILE *fp,
                  struct translatePair aEntries[][PAIRMAX],
                  int aEntryCounts[],
                  int *nNoEntries)
@@ -895,7 +961,7 @@ ReadImportedData(FILE *fp,
         
         if (nNewlineReads == 2) // Stops reading an entry
         {
-            SortEntryPairs(aEntries[*nNoEntries], aEntryCounts[*nNoEntries]);
+            sortEntryPairs(aEntries[*nNoEntries], aEntryCounts[*nNoEntries]);
             (*nNoEntries)++;
         }
         else if (nNewlineReads == 1) // Stops reading a translation pair
@@ -926,23 +992,26 @@ ReadImportedData(FILE *fp,
         }
     }
 
-    SortEntries(aEntries, aEntryCounts, *nNoEntries);
+    sortEntries(aEntries, aEntryCounts, *nNoEntries);
 }
 
 //#############################################################################################################
 //#############################################################################################################
 
 /*
-    Tokenize separates a given text into individual words while removing punctuation marks
-    @param text - the text to be tokenized
-    @param words - the array to store the tokenized words
-    @param wordCount - address of the number of words found from tokenizing 
+    tokenize 
+    
+    separates a given text into individual words while removing punctuation marks
+    @param text the text to be tokenized
+    @param words the array to store the tokenized words
+    @param wordCount address of the number of words found from tokenizing 
     @return N/A
-    Pre-condition: text is a LongString that contains at least one character
+
+    Pre-condition: text is a LongString that contains at least one character;
                    words isn't initialized prior
 */
 void
-Tokenize(char text[],
+tokenize(char text[],
          char words[][LONG_STRMAX + 1],
          int *wordCount)
 {
@@ -990,13 +1059,16 @@ Tokenize(char text[],
 }
 
 /*
-    ShortStrWordCount counts the number of words present in a given ShortString
-    @param string - the string to be evaluated
+    shortStrWordCount 
+    
+    counts the number of words present in a given ShortString
+    @param string the string to be evaluated
     @return the number of words in string
+    
     Pre-condition: string is a ShortString that contains at least one character
 */
 int
-ShortStrWordCount(char string[])
+shortStrWordCount(char string[])
 {
     int i = 0,
         ctr = 0; // Counter for the number of words read
@@ -1025,15 +1097,17 @@ ShortStrWordCount(char string[])
 }
 
 /*
-    shiftWords shifts words in the given array 
-    @param aWords - array of the list of words
-    @param nWordCount - array of the number of words stored in aWords
-    @param nStartingIndex - index where the shifting starts
-    @param nShift - how many indices each entry will go down by
+    shiftWords 
+    
+    shifts words in the given array 
+    @param aWords array of the list of words
+    @param nWordCount array of the number of words stored in aWords
+    @param nStartingIndex index where the shifting starts
+    @param nShift how many indices each entry will go down by
     @return N/A
     Pre-condition: There are at least two words that exist;
-                   nStartingIndex is a value from 0 to nWordCount - 1
-                   nShift is between 1 and nWordCount - nStartingIndex - 1
+                   nStartingIndex is a value from 0 to nWordCount 1
+                   nShift is between 1 and nWordCount nStartingIndex 1
 */
 void
 shiftWords(char aWords[][LONG_STRMAX + 1],
@@ -1049,9 +1123,12 @@ shiftWords(char aWords[][LONG_STRMAX + 1],
 }
 
 /*
-    checkCapitalization checks the capitalization of the word/phrase
-    @param word - word or phrase to be checked
+    checkCapitalization 
+    
+    checks the capitalization of the word/phrase
+    @param word word or phrase to be checked
     @return 1 if FULLY CAPITALIZED, 2 if Sentence case, and 0 otherwise
+    
     Pre-condition: strlen(word) <= 20
 */
 int
@@ -1076,21 +1153,24 @@ checkCapitalization(char word[])
 }
 
 /*
-    struct translatePair aEntries[][PAIRMAX],
-    int aEntryCounts[],
-    int nNoEntries
-    char words[][LONG_STRMAX + 1]
-    int isWordCountPresent[]
-    int wordCount
-    char langFrom[]
-    char langTo[]
+    executeTranslate
 
+    executes the translation of a text
+    @param aEntries array of the list of entries that exist
+    @param aEntryCounts array of the number of translation pairs stored in each entry
+    @param nNoEntries address containing the number of existing entries 
+    @param target what search will be looking for
+    @param isWordCountPresent array of boolean values denoting if there exists words with the corresponding word length
+    @param wordCount pointer to the word count of the text
+    @param langFrom the string of the language of the text
+    @param langTo the string of the language to translate the text to
+    @return N/A
 */
 void
 executeTranslate(struct translatePair aEntries[][PAIRMAX], 
                  int aEntryCounts[],
                  int nNoEntries,
-                 char words[][LONG_STRMAX + 1],
+                 char aWords[][LONG_STRMAX + 1],
                  int isWordCountPresent[],
                  int *wordCount,
                  char langFrom[],
@@ -1111,13 +1191,13 @@ executeTranslate(struct translatePair aEntries[][PAIRMAX],
     // Loops for every tokenized word in the text
     while (i < *wordCount)
     {
-        // Runs if words is a ShortString
-        if (strlen(words[i]) <= SHORT_STRMAX)
+        // Runs if word is a ShortString
+        if (strlen(aWords[i]) <= SHORT_STRMAX)
         {
             j = SHORT_STRMAX / 2 - 1;
             isTranslated = 0;
 
-            // Runs while the word isn't yet translated or all possible word counts have been tried
+            // Runs while the word isn't yet translated or all possible word counts haven't been tried
             while (!isTranslated && j >= 0)
             {
                 // If there is at least a target.strLang pair that possesses the current word count
@@ -1133,11 +1213,11 @@ executeTranslate(struct translatePair aEntries[][PAIRMAX],
                         // Creates a new translation word following the word count
                         for (k = 0; k < j + 1 && nIsValid; k++)
                         {
-                            nIsValid = strlen(target.strTrans) + strlen(words[i + k]) <= 20;
+                            nIsValid = strlen(target.strTrans) + strlen(aWords[i + k]) <= 20;
 
                             if (nIsValid)
                             {
-                                strcat(target.strTrans, words[i + k]);
+                                strcat(target.strTrans, aWords[i + k]);
                                 if (k < j)
                                     strcat(target.strTrans, " ");
                             }
@@ -1174,23 +1254,23 @@ executeTranslate(struct translatePair aEntries[][PAIRMAX],
                                 // Copies the (entire) found translation word to words
                                 if (isTranslated)
                                 {
-                                    strcpy(words[i], aEntries[matchI][k].strTrans);
+                                    strcpy(aWords[i], aEntries[matchI][k].strTrans);
 
                                     // Capitalizes accordingly
                                     switch (nCapitalization)
                                     {
                                         case 1:
-                                            strupr(words[i]);
+                                            strupr(aWords[i]);
                                             break;
                                         case 2:
-                                            CleanString(words[i], 1);
+                                            CleanString(aWords[i], 1);
                                             break;
                                     }
 
                                     // Shifts words according to the word count of the translation
                                     if (j > 0)
                                     {
-                                        shiftWords(words, *wordCount, i + 1, j);
+                                        shiftWords(aWords, *wordCount, i + 1, j);
                                         *wordCount -= j;
                                     }
                                 }

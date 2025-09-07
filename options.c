@@ -1,11 +1,14 @@
 #include "helper.c"
 
 /*
-    AddEntry creates a new entry/entries
-    @param aEntries - array of the list of entries that exist
-    @param aEntryCounts - array of the number of translation pairs stored in each entry
-    @param nNoEntries - address containing the number of existing entries 
+    AddEntry 
+    
+    creates a new entry/entries
+    @param aEntries array of the list of entries that exist
+    @param aEntryCounts array of the number of translation pairs stored in each entry
+    @param nNoEntries address containing the number of existing entries 
     @return N/A
+
     Pre-condition: The number of existing entries is less than ENTMAX
 */
 void
@@ -69,7 +72,7 @@ AddEntry(struct translatePair aEntries[][PAIRMAX],
             aEntries[*nNoEntries][0] = input;
             aEntryCounts[*nNoEntries]++;
             (*nNoEntries)++;
-            SortEntries(aEntries, aEntryCounts, *nNoEntries); // Allows for auto sorting
+            sortEntries(aEntries, aEntryCounts, *nNoEntries); // Allows for auto sorting
 
             printf("\nEntry added successfully.\n\n");
 
@@ -86,11 +89,14 @@ AddEntry(struct translatePair aEntries[][PAIRMAX],
 }   
 
 /*
-    AddTranslation creates a new translation pair for an existing entry
-    @param aEntries - array of the list of entries that exist
-    @param aEntryCounts - array of the number of translation pairs stored in each entry
-    @param nNoEntries - address containing the number of existing entries 
+    AddTranslation 
+    
+    creates a new translation pair for an existing entry
+    @param aEntries array of the list of entries that exist
+    @param aEntryCounts array of the number of translation pairs stored in each entry
+    @param nNoEntries address containing the number of existing entries 
     @return N/A
+
     Pre-condition: There is at least one existing entry
 */
 void
@@ -185,17 +191,20 @@ AddTranslation(struct translatePair aEntries[][PAIRMAX],
         } 
 
         // Sorts the entry (intra), then the entries (inter)
-        SortEntryPairs(aEntries[nEntryStore], aEntryCounts[nEntryStore]);
-        SortEntries(aEntries, aEntryCounts, *nNoEntries);
+        sortEntryPairs(aEntries[nEntryStore], aEntryCounts[nEntryStore]);
+        sortEntries(aEntries, aEntryCounts, *nNoEntries);
     }
 }
 
 /*
-    DisplayAllEntries display all existing entries (entries that have at least one translation pair)
-    @param aEntries - array of the list of entries that exist
-    @param aEntryCounts - array of the number of translation pairs stored in each entry
-    @param nNoEntries - the number of existing entries 
+    DisplayAllEntries 
+    
+    display all existing entries (entries that have at least one translation pair)
+    @param aEntries array of the list of entries that exist
+    @param aEntryCounts array of the number of translation pairs stored in each entry
+    @param nNoEntries the number of existing entries 
     @return N/A
+
     Pre-condition: There is at least one existing entry
 */
 void
@@ -214,11 +223,14 @@ DisplayAllEntries(struct translatePair aEntries[][PAIRMAX],
 }
 
 /*
-    SearchWord displays, if any, the entries that include the instance of an input translation
-    @param aEntries - array of the list of entries that exist
-    @param aEntryCounts - array of the number of translation pairs stored in each entry
-    @param nNoEntries - the number of existing entries 
+    SearchWord 
+    
+    displays, if any, the entries that include the instance of an input translation
+    @param aEntries array of the list of entries that exist
+    @param aEntryCounts array of the number of translation pairs stored in each entry
+    @param nNoEntries the number of existing entries 
     @return N/A
+
     Pre-condition: There is at least one existing entry
 */
 void
@@ -272,11 +284,14 @@ SearchWord(struct translatePair aEntries[][PAIRMAX],
 }
 
 /*
-    SearchTranslation displays, if any, the entries that include the instance of an input translation pair
-    @param aEntries - array of the list of entries that exist
-    @param aEntryCounts - array of the number of translation pairs stored in each entry
-    @param nNoEntries - the number of existing entries 
+    SearchTranslation 
+    
+    displays, if any, the entries that include the instance of an input translation pair
+    @param aEntries array of the list of entries that exist
+    @param aEntryCounts array of the number of translation pairs stored in each entry
+    @param nNoEntries the number of existing entries 
     @return N/A
+
     Pre-condition: There is at least one existing entry
 */
 void
@@ -329,13 +344,15 @@ SearchTranslation(struct translatePair aEntries[][PAIRMAX],
 }
 
 /*
-    DeleteEntry deletes an existing entry, then shifts succeeding entries if necessary
-    @param aEntries - array of the list of entries that exist
-    @param aEntryCounts - array of the number of translation pairs stored in each entry
-    @param *nNoEntries - address of the number of existing entries 
+    DeleteEntry 
+    
+    deletes an existing entry, then shifts succeeding entries if necessary
+    @param aEntries array of the list of entries that exist
+    @param aEntryCounts array of the number of translation pairs stored in each entry
+    @param *nNoEntries address of the number of existing entries 
     @return N/A
-    Pre-condition: There is at least one existing entry
-                   The entries have been sorted prior
+
+    Pre-condition: There is at least one existing entry; the entries have been sorted prior
 */
 void
 DeleteEntry(struct translatePair aEntries[][PAIRMAX],
@@ -406,14 +423,16 @@ DeleteEntry(struct translatePair aEntries[][PAIRMAX],
 }
 
 /*
-    DeleteTranslation deletes a translation pair/s from a single entry, then adjusts accordingly
-    @param aEntries - array of the list of entries that exist
-    @param aEntryCounts - array of the number of translation pairs stored in each entry
-    @param *nNoEntries - address of the number of existing entries 
+    DeleteTranslation 
+    
+    deletes a translation pair/s from a single entry, then adjusts accordingly
+    @param aEntries array of the list of entries that exist
+    @param aEntryCounts array of the number of translation pairs stored in each entry
+    @param *nNoEntries address of the number of existing entries 
     @return N/A
-    Pre-condition: There is at least one existing entry
-                   The entries have been sorted prior
-                   Each entry has been sorted prior
+
+    Pre-condition: There is at least one existing entry; the entries have been sorted prior;
+                   each entry has been sorted prior
 */
 void
 DeleteTranslation(struct translatePair aEntries[][PAIRMAX],
@@ -507,18 +526,20 @@ DeleteTranslation(struct translatePair aEntries[][PAIRMAX],
     }
 
     // Sorts the entries in case if the previous entry's leading translation pair was deleted
-    SortEntries(aEntries, aEntryCounts, *nNoEntries);
+    sortEntries(aEntries, aEntryCounts, *nNoEntries);
 }
 
 /*
-    Export exports all stored information (entries) to a textfile
-    @param aEntries - array of the list of entries that exist
-    @param aEntryCounts - array of the number of translation pairs stored in each entry
-    @param nNoEntries - the number of existing entries 
+    Export 
+    
+    exports all stored information (entries) to a textfile
+    @param aEntries array of the list of entries that exist
+    @param aEntryCounts array of the number of translation pairs stored in each entry
+    @param nNoEntries the number of existing entries 
     @return N/A
-    Pre-condition: There is at least one existing entry
-                   The entries have been sorted prior
-                   Each entry has been sorted prior
+
+    Pre-condition: There is at least one existing entry; the entries have been sorted prior;
+                   each entry has been sorted prior
 */
 void
 Export(struct translatePair aEntries[][PAIRMAX],
@@ -563,13 +584,16 @@ Export(struct translatePair aEntries[][PAIRMAX],
 }
 
 /*
-    Import imports all information from a textfile into the program
-    @param aEntries - array of the list of entries that exist
-    @param aEntryCounts - array of the number of translation pairs stored in each entry
-    @param nNoEntries - address of the number of existing entries 
+    Import 
+    
+    imports all information from a textfile into the program
+    @param aEntries array of the list of entries that exist
+    @param aEntryCounts array of the number of translation pairs stored in each entry
+    @param nNoEntries address of the number of existing entries 
     @return N/A
-    Pre-condition: The number of existing entries is less than ENTMAX
-                   There is at least one entry in the textfile
+
+    Pre-condition: The number of existing entries is less than ENTMAX;
+                   there is at least one entry in the textfile
 */
 void
 Import(struct translatePair aEntries[][PAIRMAX],
@@ -598,7 +622,7 @@ Import(struct translatePair aEntries[][PAIRMAX],
         // Imports data directly to the program if there is no existing entry
         if (*nNoEntries == 0)
         {
-            ReadImportedData(fp, aEntries, aEntryCounts, &nImportNoEntries);
+            readImportedData(fp, aEntries, aEntryCounts, &nImportNoEntries);
             *nNoEntries = nImportNoEntries;
             fclose(fp);
             printf("\nData import from %s successful.\n", filename);
@@ -606,7 +630,7 @@ Import(struct translatePair aEntries[][PAIRMAX],
         else // If at least one entry exists
         {
             // Stores data to aImportEntries first
-            ReadImportedData(fp, aImportEntries, aImportEntryCounts, &nImportNoEntries);
+            readImportedData(fp, aImportEntries, aImportEntryCounts, &nImportNoEntries);
             fclose(fp);
 
             // Lets the user decide one-by-one if an entry is to be imported
@@ -631,7 +655,7 @@ Import(struct translatePair aEntries[][PAIRMAX],
             }
             // Sorts all existing entries if at least one imported entry was added to the program
             if (nIsAdd)
-                SortEntries(aEntries, aEntryCounts, *nNoEntries);
+                sortEntries(aEntries, aEntryCounts, *nNoEntries);
         }
     }
     else
@@ -645,11 +669,14 @@ Import(struct translatePair aEntries[][PAIRMAX],
 //#############################################################################################################
 
 /*
-    TranslateTextInput translates an entered source text from a specific language to another
-    @param aEntries - array of the list of entries that exist
-    @param aEntryCounts - array of the number of translation pairs stored in each entry
-    @param nNoEntries - the number of existing entries 
+    TranslateTextInput 
+    
+    translates an entered source text from a specific language to another
+    @param aEntries array of the list of entries that exist
+    @param aEntryCounts array of the number of translation pairs stored in each entry
+    @param nNoEntries the number of existing entries 
     @return N/A
+
     Pre-condition: There is at least one existing entry  
 */
 void
@@ -687,7 +714,7 @@ TranslateTextInput(struct translatePair aEntries[][PAIRMAX],
     for (i = 0; i < nNoEntries; i++)
         for (j = 0; j < aEntryCounts[i]; j++)
             if (strcmp(aEntries[i][j].strLang, langFrom) == 0)
-                aIsWordCountPresent[ShortStrWordCount(aEntries[i][j].strTrans) - 1] = 1;
+                aIsWordCountPresent[shortStrWordCount(aEntries[i][j].strTrans) - 1] = 1;
         
     // Loops while nSentinel is 1
     while (nSentinel)
@@ -698,7 +725,7 @@ TranslateTextInput(struct translatePair aEntries[][PAIRMAX],
         printf("\n");
         getLongStrInput(input, "Enter text: ");
         
-        Tokenize(input, aWords, &nWordCount); // Separates the input to words and stores them in aWords
+        tokenize(input, aWords, &nWordCount); // Separates the input to words and stores them in aWords
     
         // Executes the actual translation and stores the result in aWords
         executeTranslate(aEntries, aEntryCounts, nNoEntries,
@@ -718,14 +745,16 @@ TranslateTextInput(struct translatePair aEntries[][PAIRMAX],
 }
 
 /*
-    TranslateTextInput translates an imported source text (from a txt file) from a specific language to another,
+    TranslateTextInput 
+    
+    translates an imported source text (from a txt file) from a specific language to another,
         then saves it in another txt file
-    @param aEntries - array of the list of entries that exist
-    @param aEntryCounts - array of the number of translation pairs stored in each entry
-    @param nNoEntries - the number of existing entries 
+    @param aEntries array of the list of entries that exist
+    @param aEntryCounts array of the number of translation pairs stored in each entry
+    @param nNoEntries the number of existing entries 
     @return N/A
-    Pre-condition: There is at least one existing entry  
-                   The origin file contains at least one character
+    Pre-condition: There is at least one existing entry;  
+                   the origin file contains at least one character
 */
 void
 TranslateTextFile(struct translatePair aEntries[][PAIRMAX],
@@ -793,7 +822,7 @@ TranslateTextFile(struct translatePair aEntries[][PAIRMAX],
         for (i = 0; i < nNoEntries; i++)
             for (j = 0; j < aEntryCounts[i]; j++)
                 if (strcmp(aEntries[i][j].strLang, langFrom) == 0)
-                    aIsWordCountPresent[ShortStrWordCount(aEntries[i][j].strTrans) - 1] = 1;
+                    aIsWordCountPresent[shortStrWordCount(aEntries[i][j].strTrans) - 1] = 1;
 
         fp2 = fopen(destFile, "wt");
             
@@ -817,13 +846,13 @@ TranslateTextFile(struct translatePair aEntries[][PAIRMAX],
             {
                 input[i] = '\0';
 
-                // Resets aWords to prevent complications with Tokenize
+                // Resets aWords to prevent complications with tokenize
                 for (j = 0; j < nWordCount; j++)
                     strcpy(aWords[j], "");
 
                 nWordCount = 0;
                 
-                Tokenize(input, aWords, &nWordCount); // Separates the input to words and stores them in aWords
+                tokenize(input, aWords, &nWordCount); // Separates the input to words and stores them in aWords
             
                 // Executes the actual translation and stores the result in aWords
                 executeTranslate(aEntries, aEntryCounts, nNoEntries,
@@ -852,7 +881,7 @@ TranslateTextFile(struct translatePair aEntries[][PAIRMAX],
 
             nWordCount = 0;
             
-            Tokenize(input, aWords, &nWordCount);
+            tokenize(input, aWords, &nWordCount);
         
             executeTranslate(aEntries, aEntryCounts, nNoEntries,
                              aWords, aIsWordCountPresent, &nWordCount,

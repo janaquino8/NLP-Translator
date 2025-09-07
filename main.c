@@ -1,9 +1,12 @@
 #include "options.c"
 
 /*
-    ManageDataMenu displays and runs the manage data menu
+    ManageDataMenu 
+    
+    displays and runs the manage data menu
     @param N/A
     @return N/A
+
     Pre-condition: N/A
 */
 void 
@@ -127,9 +130,12 @@ ManageDataMenu()
 }
 
 /*
-    TranslateMenu displays and runs the translate menu
+    TranslateMenu 
+    
+    displays and runs the translate menu
     @param N/A
     @return N/A
+
     Pre-condition: N/A
 */
 void 
@@ -149,7 +155,7 @@ TranslateMenu()
     if ((fp = fopen(filename, "rt")) != NULL)
     {
         // Importing the data from the text file
-        ReadImportedData(fp, aEntries, aEntryCounts, &nNoEntries);
+        readImportedData(fp, aEntries, aEntryCounts, &nNoEntries);
         fclose(fp);
 
         // The actual translate menu runs if at least one translate pair is read
@@ -196,8 +202,10 @@ TranslateMenu()
 
 /*
     main function
+
     @param N/A
     @return 0 if successfully ran
+    
     Pre-condition: N/A
 */
 int 
