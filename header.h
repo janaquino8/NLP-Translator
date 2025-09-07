@@ -36,4 +36,53 @@ struct translatePair
     ShortString strTrans; // Translation
 };
 
+// helper.c
+void printLine(int n);
+void displayMainMenu();
+void displayManageDataMenu();
+void displayTranslateMenu();
+int getIntSentiInput(int nMin, int nMax, char sInstruct[]);
+int getIntNoInput(int nIsRedo, char sInstruct[]);
+char getDisplaySentiInput();
+void getShortStrInput(char sInput[], char sInstruct[]);
+void getTxtFileNameInput(char sInput[]);
+void getLongStrInput(char sInput[], char sInstruct[]);
+void CleanString(char nString[], int nIfCapitalized);
+struct translatePair getTranslatePair();
+void displayEntry(struct translatePair entry[], int nEntryCount, int nEntryNo);
+void displayEntries(struct translatePair aEntries[][PAIRMAX], int aEntryCounts[], int nNoEntries, int aEntryNoList[]);
+void copyEntry(struct translatePair dest[], struct translatePair origin[], int nNoPairs);
+int pairComparison(struct translatePair pair1, struct translatePair pair2);
+void search(struct translatePair aEntries[][PAIRMAX], int aEntryCounts[], int nNoEntries, struct translatePair target, 
+    int nFirstEntry, int nFirstPair, int *nEntryNo, int *nPairNo, int nMatch);
+void sortEntries(struct translatePair aEntries[][PAIRMAX], int aEntryCounts[], int nNoEntries);
+void sortEntryPairs(struct translatePair entry[], int entryCount);
+void shiftEntries(struct translatePair aEntries[][PAIRMAX], int aEntryCounts[], int nNoEntries, int nStartingIndex);
+void shiftPairs(struct translatePair aEntry[], int nEntryCount, int nStartingIndex);
+void clearEntry(struct translatePair aEntry[], int nEntryCount);
+void readImportedData(FILE *fp, struct translatePair aEntries[][PAIRMAX], int aEntryCounts[], int *nNoEntries);
+void tokenize(char text[], char words[][LONG_STRMAX + 1], int *wordCount);
+int shortStrWordCount(char string[]);
+void shiftWords(char aWords[][LONG_STRMAX + 1], int nWordCount, int nStartingIndex, int nShift);
+int checkCapitalization(char word[]);
+void executeTranslate(struct translatePair aEntries[][PAIRMAX], int aEntryCounts[], int nNoEntries, char aWords[][LONG_STRMAX + 1],
+    int isWordCountPresent[], int *wordCount, char langFrom[], char langTo[]);
+
+// options.c
+void AddEntry(struct translatePair aEntries[][PAIRMAX], int aEntryCounts[], int *nNoEntries);
+void AddTranslation(struct translatePair aEntries[][PAIRMAX], int aEntryCounts[], int *nNoEntries);
+void DisplayAllEntries(struct translatePair aEntries[][PAIRMAX], int aEntryCounts[], int nNoEntries);
+void SearchWord(struct translatePair aEntries[][PAIRMAX], int aEntryCounts[], int nNoEntries);
+void SearchTranslation(struct translatePair aEntries[][PAIRMAX], int aEntryCounts[], int nNoEntries);
+void DeleteEntry(struct translatePair aEntries[][PAIRMAX], int aEntryCounts[], int *nNoEntries);
+void DeleteTranslation(struct translatePair aEntries[][PAIRMAX], int aEntryCounts[], int *nNoEntries);
+void Export(struct translatePair aEntries[][PAIRMAX], int aEntryCounts[], int nNoEntries);
+void Import(struct translatePair aEntries[][PAIRMAX], int aEntryCounts[], int *nNoEntries);
+void TranslateTextInput(struct translatePair aEntries[][PAIRMAX], int aEntryCounts[], int nNoEntries);
+void TranslateTextFile(struct translatePair aEntries[][PAIRMAX], int aEntryCounts[], int nNoEntries);
+
+// main.c
+void ManageDataMenu();
+void TranslateMenu();
+
 #endif
