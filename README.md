@@ -1,8 +1,8 @@
-# NLP Translator
+# Simple Translator
 A simple translator made using C 
 
 ## About
-This is a simple natural language processing (NLP) translator written using C. 
+This is a simple translator written using C. 
 
 For the **manage data** section, this translator allows the user to add entries pertaining to the translation of a single word to other languages, delete entries, view entries, search entries based on word or translation, export the entries to a text file, and import a text file following the prescribed format (see ```Sample_Import.txt``` for details). 
 
@@ -16,7 +16,7 @@ This is done as a Machine Project (MP), part of the course requirements for CCPR
 
 ### Cloning the repository
 ```sh
-git clone https://github.com/janaquino8/NLP-Translator
+git clone https://github.com/janaquino8/Simple-Translator
 ```
 
 ### Compiling the project
